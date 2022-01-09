@@ -3,12 +3,12 @@
 
 - name : "Read env variables files"
   include_vars :
-    file : "vars/{{ PROJECT }}_{{ ENV }}.yaml"
+    file : "vars/{{ PROJECT }}_{{ ENV }}.yml"
 
 
 - name : "Read Project variable files"
   include_vars :
-   file : "vars/{{ PROJECT }}.yaml"
+   file : "vars/{{ PROJECT }}.yml"
 
 - ec2:
     region: "{{ REGION }}"
