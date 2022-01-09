@@ -1,0 +1,21 @@
+---
+# tasks file for CREATEEC2
+
+- name : "Read env variables files"
+  include_vars :
+    file : "vars/{{ PROJECT }}_{{ ENV }}.yaml"
+
+
+- name : "Read Project variable files"
+  include_vars :
+   file : "vars/{{ PROJECT }}.yaml
+
+- ec2:
+    region: us-west-1
+    key_name: Devops
+    instance_type: t2.micro
+    image: ami-03af6a70ccd8cb578
+    wait: yes
+    count: 1
+    vpc_subnet_id: subnet-03ea3032f7f3afac2
+    assign_public_ip: yes
